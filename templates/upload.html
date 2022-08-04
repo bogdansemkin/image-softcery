@@ -5,11 +5,11 @@
     <title>Upload image</title>
 </head>
 <body>
-<form action="/images/upload" method="post">
-<label for="avatar">Choose a picture:</label>
+<form enctype="multipart/form-data" action="/images/upload" method="post">
+<label for="imageFile">Choose a picture:</label>
 
 <input type="file"
-       id="avatar" name="avatar"
+       id="imageFile" name="imageFile"
        accept="image/png, image/jpeg">
 
     <button type="submit" class="form-auth-reg__submit">Upload</button>
