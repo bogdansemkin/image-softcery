@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload image</title>
+</head>
+<body>
+<form action="/images/upload" method="post">
+<label for="avatar">Choose a picture:</label>
+
+<input type="file"
+       id="avatar" name="avatar"
+       accept="image/png, image/jpeg">
+
+    <button type="submit" class="form-auth-reg__submit">Upload</button>
+</form>
+</body>
+</html>
+
+<style>
+    label {
+        display: block;
+        font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    input,
+    label {
+        margin: .4rem 0;
+    }
+    button {
+        margin: .4rem 0;
+    }
+
+</style>
