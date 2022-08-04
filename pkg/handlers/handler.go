@@ -23,8 +23,8 @@ func (h *Handler) InitRoutes() *gin.Engine{
 		images.GET("/upload", h.uploadTemplate)
 		images.POST("/upload", h.imageUpload)
 
-		images.GET("/download", h.downloadTemplate)
-		images.POST("/download", h.imageDownload)
+		images.GET("/download/:id", h.downloadTemplate)
+		images.POST("/download/:id", h.imageDownload)
 	}
 	return router
 }
