@@ -17,6 +17,6 @@ func (s *ImageService)Upload(path string) (int, error){
 	return s.repo.Upload(path)
 }
 
-func (s *ImageService) Download(id int) (model.Image, error){
+func (s *ImageService) Download(id string) (model.Image, error){
 	return s.repo.Download(id)
 }
