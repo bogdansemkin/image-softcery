@@ -16,7 +16,8 @@ func NewHandler(service *services.Service) *Handler{
 func (h *Handler) InitRoutes() *gin.Engine{
 	router := gin.Default()
 
-	router.LoadHTMLFiles("D:\\image-softcery\\templates\\upload.html")
+	router.LoadHTMLFiles("D:\\image-softcery\\templates\\upload.html", "D:\\image-softcery\\templates\\download.html")
+	router.Static("/img", "D:\\image-softcery\\templates\\img")
 
 	images := router.Group("/images")
 	{

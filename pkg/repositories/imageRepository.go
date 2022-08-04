@@ -28,11 +28,11 @@ func (r *ImageRepos)Upload(path string) (int, error){
 	return id, nil
 }
 
-func (r *ImageRepos) Download(id int) (model.Image, error){
+func (r *ImageRepos) Download(id string) (model.Image, error){
 	image := model.Image{}
 	query := fmt.Sprintf("SELECT path FROM %s WHERE id=$1", imageTable)
 
-	err := r.db.Get(&image, query, string(id))
+	err := r.db.Get(&image, query, id)
 	if err != nil {
 		logrus.Errorf("Error on repo Download, %s", err)
 	}

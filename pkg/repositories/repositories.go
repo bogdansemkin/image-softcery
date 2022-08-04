@@ -7,7 +7,7 @@ import (
 
 type Image interface{
 	Upload(path string) (int, error)
-	Download(id int) (model.Image, error)
+	Download(id string) (model.Image, error)
 }
 
 type Repository struct {
