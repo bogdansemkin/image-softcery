@@ -27,7 +27,7 @@ func (h *Handler) imageUpload(c *gin.Context){
 
 	tempFile.Write(fileBytes)
 
-	_ , err = h.service.Image.Upload(tempFile.Name())
+	_ , err = h.service.Image.Upload(tempFile.Name(), imageResize(tempFile.Name()), imageHalfResize(tempFile.Name()), imageFullResize(tempFile.Name()))
 	if err != nil {
 		logrus.Errorf("Error on uploading image, %s", err)
 	}
@@ -37,11 +37,24 @@ func (h *Handler) imageUpload(c *gin.Context){
 
 func (h *Handler) imageDownload(c *gin.Context){
 	id := c.Param("id")
+	quality := c.Query("quality")
 
 	image, err := h.service.Image.Download(id)
 	if err != nil {
 		logrus.Errorf("Error during downloading image... %s", err)
 	}
-	
-    c.File(image.Path)
+	if quality != "" {
+		switch quality {
+		case "100":
+			c.File(image.Path)
+		case "75":
+			c.File(image.SeventyFivePath)
+		case "50":
+			c.File(image.HalfPath)
+		case "25":
+			c.File(image.TwentyFivePath)
+		}
+	} else{
+		c.File(image.Path)
+	}
 }
