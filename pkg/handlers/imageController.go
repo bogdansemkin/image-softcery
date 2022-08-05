@@ -3,11 +3,13 @@ package handlers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+	"image-softcery/pkg/rabbit"
 	"io/ioutil"
 	"net/http"
 )
 
 func (h *Handler) imageUpload(c *gin.Context){
+	mq := rabbit.MQ{}
 	file, err := c.FormFile("imageFile")
 	if err != nil {
 		logrus.Errorf("error on controller upload, %s", err)
@@ -27,10 +29,8 @@ func (h *Handler) imageUpload(c *gin.Context){
 
 	tempFile.Write(fileBytes)
 
-	_ , err = h.service.Image.Upload(tempFile.Name(), imageResize(tempFile.Name()), imageHalfResize(tempFile.Name()), imageFullResize(tempFile.Name()))
-	if err != nil {
-		logrus.Errorf("Error on uploading image, %s", err)
-	}
+	mq.Producer(tempFile.Name())
+	mq.Consumer()
 
 	c.String(http.StatusOK, "Successfully Uploaded File\n")
 }
