@@ -6,7 +6,7 @@ import (
 )
 
 type Image interface{
-	Upload(path string) (int, error)
+	Upload(original, resize, halfResize, fullResize string) (int, error)
 	Download(id string) (model.Image, error)
 }
 

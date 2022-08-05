@@ -13,8 +13,8 @@ func NewImageService(repos repositories.Image) *ImageService{
 	return &ImageService{repo: repos}
 }
 
-func (s *ImageService)Upload(path string) (int, error){
-	return s.repo.Upload(path)
+func (s *ImageService)Upload(original, resize, halfResize, fullResize string) (int, error){
+	return s.repo.Upload(original, resize, halfResize, fullResize)
 }
 
 func (s *ImageService) Download(id string) (model.Image, error){
