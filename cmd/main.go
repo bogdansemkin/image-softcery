@@ -1,20 +1,20 @@
 package main
 
 import (
+	"github.com/bogdansemkin/image-softcery/configs"
+	"github.com/bogdansemkin/image-softcery/pkg/handlers"
+	"github.com/bogdansemkin/image-softcery/pkg/repositories"
+	"github.com/bogdansemkin/image-softcery/pkg/services"
+	"github.com/bogdansemkin/image-softcery/server"
 	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"image-softcery/configs"
-	"image-softcery/pkg/handlers"
-	"image-softcery/pkg/repositories"
-	"image-softcery/pkg/services"
-	"image-softcery/server"
 	"os"
 )
 
 // @title   Image App API
 // @version 1.0
-// @ description API Server for upload-download image
+// @description API Server for upload-download image
 
 // @host     localhost:8000
 // @BasePath /

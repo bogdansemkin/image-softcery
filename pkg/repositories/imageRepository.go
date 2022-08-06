@@ -2,9 +2,9 @@ package repositories
 
 import (
 	"fmt"
+	"github.com/bogdansemkin/image-softcery/pkg/model"
 	"github.com/jmoiron/sqlx"
 	"github.com/sirupsen/logrus"
-	"image-softcery/pkg/model"
 )
 
 type ImageRepos struct {

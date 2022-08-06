@@ -1,9 +1,9 @@
 package handlers
 
 import (
+	"github.com/bogdansemkin/image-softcery/pkg/rabbit"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
-	"image-softcery/pkg/rabbit"
 	"io/ioutil"
 	"net/http"
 )

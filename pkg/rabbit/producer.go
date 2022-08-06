@@ -2,8 +2,8 @@ package rabbit
 
 import (
 	"fmt"
+	"github.com/bogdansemkin/image-softcery/pkg/services"
 	"github.com/streadway/amqp"
-	"image-softcery/pkg/services"
 	"io/ioutil"
 	"log"
 	"os"
