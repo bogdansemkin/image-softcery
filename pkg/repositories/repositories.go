@@ -1,8 +1,8 @@
 package repositories
 
 import (
+	"github.com/bogdansemkin/image-softcery/pkg/model"
 	"github.com/jmoiron/sqlx"
-	"image-softcery/pkg/model"
 )
 
 type Image interface {

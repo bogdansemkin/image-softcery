@@ -1,14 +1,14 @@
 package handlers
 
 import (
+	"github.com/bogdansemkin/image-softcery/pkg/services"
 	"github.com/gin-gonic/gin"
-	"image-softcery/pkg/services"
 
 	ginSwagger "github.com/swaggo/gin-swagger"
 
 	swaggerFiles "github.com/swaggo/files"
 
-	_ "image-softcery/docs"
+	_ "github.com/bogdansemkin/image-softcery/docs"
 )
 
 type Handler struct {

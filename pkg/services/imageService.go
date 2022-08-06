@@ -1,8 +1,8 @@
 package services
 
 import (
-	"image-softcery/pkg/model"
-	"image-softcery/pkg/repositories"
+	"github.com/bogdansemkin/image-softcery/pkg/model"
+	"github.com/bogdansemkin/image-softcery/pkg/repositories"
 )
 
 type ImageService struct {
