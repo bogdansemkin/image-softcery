@@ -30,7 +30,8 @@ func (h *Handler) imageUpload(c *gin.Context){
 	tempFile.Write(fileBytes)
 
 	mq.Producer(tempFile.Name())
-	mq.Consumer()
+	image, seventy_five_image, half_image, part_image := mq.Consumer()
+	h.service.Upload(image, seventy_five_image, half_image, part_image)
 
 	c.String(http.StatusOK, "Successfully Uploaded File\n")
 }
@@ -54,7 +55,7 @@ func (h *Handler) imageDownload(c *gin.Context){
 		case "25":
 			c.File(image.TwentyFivePath)
 		}
-	} else{
+	}else{
 		c.File(image.Path)
 	}
 }
