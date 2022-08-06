@@ -15,7 +15,7 @@ import (
 
 const url = "amqp://guest:guest@localhost:5672/"
 
-func (rabbit *MQ) Consumer() (string, string, string, string){
+func (rabbit *MQ) Consumer() (string, string, string, string) {
 	conn, err := amqp.Dial(url)
 	if err != nil {
 		log.Fatalf("Failed to connect to server. Error: %s", err.Error())
@@ -45,7 +45,7 @@ func (rabbit *MQ) Consumer() (string, string, string, string){
 	if err != nil {
 		log.Fatal(err)
 	}
-	c := make (chan string, 4)
+	c := make(chan string, 4)
 	go func() {
 		for d := range msgs {
 
@@ -96,10 +96,10 @@ func (rabbit *MQ) Consumer() (string, string, string, string){
 			time.Sleep(time.Second * 5)
 		}
 	}()
-	image := <- c
-	seventy_five_image := <- c
-	half_image := <- c
-	twenty_five_image := <- c
+	image := <-c
+	seventy_five_image := <-c
+	half_image := <-c
+	twenty_five_image := <-c
 
 	return image, seventy_five_image, half_image, twenty_five_image
 }

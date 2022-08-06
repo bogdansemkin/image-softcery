@@ -12,11 +12,17 @@ import (
 	"os"
 )
 
-func main(){
+// @title   Image App API
+// @version 1.0
+// @ description API Server for upload-download image
+
+// @host     localhost:8000
+// @BasePath /
+func main() {
 	srv := server.Server{}
 	config := configs.Configs{}
 
-	if err := config.InitConfig(); err != nil{
+	if err := config.InitConfig(); err != nil {
 		logrus.Errorf("Error during init configs, %s", err)
 	}
 

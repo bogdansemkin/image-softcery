@@ -1,7 +1,6 @@
 package rabbit
 
 import (
-	"fmt"
 	"github.com/nfnt/resize"
 	"github.com/sirupsen/logrus"
 	"image/jpeg"
@@ -9,9 +8,9 @@ import (
 	"os"
 )
 
-func imageResize(path string) string{
+func imageResize(path string) string {
 	file, err := os.Open(path)
-	if err != nil{
+	if err != nil {
 		logrus.Errorf("Error on opening file, %s", err)
 	}
 	img, err := jpeg.Decode(file)
@@ -29,13 +28,13 @@ func imageResize(path string) string{
 	defer out.Close()
 
 	jpeg.Encode(out, m, nil)
-	fmt.Println("OUT PATH NAME," , out.Name())
+
 	return out.Name()
 }
 
-func imageHalfResize(path string) string{
+func imageHalfResize(path string) string {
 	file, err := os.Open(path)
-	if err != nil{
+	if err != nil {
 		logrus.Errorf("Error on opening file, %s", err)
 	}
 	img, err := jpeg.Decode(file)
@@ -53,13 +52,13 @@ func imageHalfResize(path string) string{
 	defer out.Close()
 
 	jpeg.Encode(out, m, nil)
-	fmt.Println("OUT PATH NAME," , out.Name())
+
 	return out.Name()
 }
 
-func imageFullResize(path string) string{
+func imageFullResize(path string) string {
 	file, err := os.Open(path)
-	if err != nil{
+	if err != nil {
 		logrus.Errorf("Error on opening file, %s", err)
 	}
 	img, err := jpeg.Decode(file)
@@ -77,6 +76,6 @@ func imageFullResize(path string) string{
 	defer out.Close()
 
 	jpeg.Encode(out, m, nil)
-	fmt.Println("OUT PATH NAME," , out.Name())
+
 	return out.Name()
 }
