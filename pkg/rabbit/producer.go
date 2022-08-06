@@ -8,7 +8,8 @@ import (
 	"log"
 	"os"
 )
-type MQ struct{
+
+type MQ struct {
 	service *services.Service
 }
 
@@ -18,7 +19,7 @@ func failOnError(err error, msg string) {
 	}
 }
 
-func (rabbit *MQ) Producer(filepath string){
+func (rabbit *MQ) Producer(filepath string) {
 	conn, err := amqp.Dial(url)
 	if err != nil {
 		log.Fatalf("Failed to connect to server. Error: %s", err.Error())
@@ -54,7 +55,7 @@ func (rabbit *MQ) Producer(filepath string){
 		}
 		file.Close()
 
-		 func(img []byte, filename string) {
+		func(img []byte, filename string) {
 			// Create a message
 			msg := amqp.Publishing{
 				Body: img,

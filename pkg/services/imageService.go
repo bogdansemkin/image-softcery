@@ -5,18 +5,18 @@ import (
 	"image-softcery/pkg/repositories"
 )
 
-type ImageService struct{
+type ImageService struct {
 	repo repositories.Image
 }
 
-func NewImageService(repos repositories.Image) *ImageService{
+func NewImageService(repos repositories.Image) *ImageService {
 	return &ImageService{repo: repos}
 }
 
-func (s *ImageService)Upload(original, resize, halfResize, fullResize string) (int, error){
+func (s *ImageService) Upload(original, resize, halfResize, fullResize string) (int, error) {
 	return s.repo.Upload(original, resize, halfResize, fullResize)
 }
 
-func (s *ImageService) Download(id string) (model.Image, error){
+func (s *ImageService) Download(id string) (model.Image, error) {
 	return s.repo.Download(id)
 }
