@@ -24,10 +24,12 @@ The API to the example app is described below.
 
 ## Upload image
 
-### Request
+ ### Request
 
-`POST /image/`
- curl -v -F  upload=@localfilename http://8000/images/upload
+`POST /images/`
+
+    curl -v -F  upload=@localfilename http://8000/images/upload
+
 
 ### Response
 
