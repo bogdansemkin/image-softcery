@@ -4,11 +4,11 @@ import (
 	"github.com/bogdansemkin/image-softcery/pkg/services"
 	"github.com/gin-gonic/gin"
 
-	ginSwagger "github.com/swaggo/gin-swagger"
+	 "github.com/swaggo/gin-swagger"
 
 	swaggerFiles "github.com/swaggo/files"
 
-	_ "github.com/bogdansemkin/image-softcery/docs"
+	docs "github.com/bogdansemkin/image-softcery/docs"
 )
 
 type Handler struct {
@@ -22,6 +22,7 @@ func NewHandler(service *services.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.Default()
 
+	docs.SwaggerInfo.BasePath="/pkg/hanlders/"
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	images := router.Group("/images")

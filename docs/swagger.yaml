@@ -1,7 +1,8 @@
-basePath: /
+basePath: /images/
 host: localhost:8000
 info:
   contact: {}
+  description: API Server for upload-download image
   title: Image App API
   version: "1.0"
 paths: {}

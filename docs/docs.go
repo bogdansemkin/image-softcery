@@ -22,10 +22,10 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "localhost:8000",
-	BasePath:         "/",
+	BasePath:         "/images/",
 	Schemes:          []string{},
 	Title:            "Image App API",
-	Description:      "",
+	Description:      "API Server for upload-download image",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }
