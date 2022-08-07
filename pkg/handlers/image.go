@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"fmt"
-	"github.com/bogdansemkin/image-softcery/pkg/cache"
 	"github.com/bogdansemkin/image-softcery/pkg/rabbit"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
@@ -47,8 +45,8 @@ func (h *Handler) imageUpload(c *gin.Context) {
 	mq.Producer(tempFile.Name())
 	image, seventyFiveImage, halfImage, partImage := mq.Consumer()
 
-	cache.Set(fmt.Sprintf("%s:%s", "upload", image), "", cache.OneDayTtl)
-	
+	//cache.Set(fmt.Sprintf("%s:%s", "upload", tempFile.Name()), "", cache.OneDayTtl)
+
 	id, err := h.service.Upload(image, seventyFiveImage, halfImage, partImage)
 	if err != nil{
 		logrus.Errorf("Error during image uploading, %s", err)
