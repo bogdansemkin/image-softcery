@@ -43,8 +43,8 @@ func (h *Handler) imageUpload(c *gin.Context) {
 	tempFile.Write(fileBytes)
 
 	mq.Producer(tempFile.Name())
-	image, seventy_five_image, half_image, part_image := mq.Consumer()
-	h.service.Upload(image, seventy_five_image, half_image, part_image)
+	image, seventyFiveImage, halfImage, partImage := mq.Consumer()
+	h.service.Upload(image, seventyFiveImage, halfImage, partImage)
 
 	c.String(http.StatusOK, "Successfully Uploaded File\n")
 }
@@ -60,7 +60,7 @@ func (h *Handler) imageUpload(c *gin.Context) {
 // @Failure     400,404 {object} errorResponse
 // @Failure     500     {object} errorResponse
 // @Failure     default {object} errorResponse
-// @Router      /download/:id [get]
+// @Router      /images/download/{id} [get]
 
 func (h *Handler) imageDownload(c *gin.Context) {
 	id := c.Param("id")

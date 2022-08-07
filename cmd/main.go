@@ -10,14 +10,15 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
+
 )
 
-// @title   Image App API
-// @version 1.0
+// @title       Image App API
+// @version     1.0
 // @description API Server for upload-download image
 
 // @host     localhost:8000
-// @BasePath /
+// @BasePath /images/
 func main() {
 	srv := server.Server{}
 	config := configs.Configs{}
