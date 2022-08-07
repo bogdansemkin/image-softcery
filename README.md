@@ -17,6 +17,10 @@ The entire application is contained within the `cmd/main.go` file.
 
     go run ./pkg/handlers/image_test.go
     
+## Run Redis:
+
+    docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+    
 ## Run DB:
    
     For start db use docker-compose -> image-softcery.db1
