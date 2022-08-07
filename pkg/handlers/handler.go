@@ -22,7 +22,7 @@ func NewHandler(service *services.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.Default()
 
-	docs.SwaggerInfo.BasePath="/pkg/hanlders/"
+	docs.SwaggerInfo.BasePath="/images/"
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	images := router.Group("/images")

@@ -44,9 +44,15 @@ func (h *Handler) imageUpload(c *gin.Context) {
 
 	mq.Producer(tempFile.Name())
 	image, seventyFiveImage, halfImage, partImage := mq.Consumer()
-	h.service.Upload(image, seventyFiveImage, halfImage, partImage)
 
-	c.String(http.StatusOK, "Successfully Uploaded File\n")
+	//cache.Set(fmt.Sprintf("%s:%s", "upload", tempFile.Name()), "", cache.OneDayTtl)
+
+	id, err := h.service.Upload(image, seventyFiveImage, halfImage, partImage)
+	if err != nil{
+		logrus.Errorf("Error during image uploading, %s", err)
+	}
+
+	c.String(http.StatusOK, "Successfully Uploaded File with id %d \n", id)
 }
 
 // @Summary     imageDownload
