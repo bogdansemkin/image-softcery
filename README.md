@@ -17,7 +17,14 @@ The entire application is contained within the `cmd/main.go` file.
 
     go run ./pkg/handlers/image_test.go
     
+## Run DB:
+   
+    For start db use docker-compose -> image-softcery.db1
     
+## Create table on DB: 
+
+    migrate -path ./schema -database 'postgres://postgres:qwerty@localhost:5436/postgres?sslmode=disable' up
+
 # HTTP API
 
 The API to the example app is described below.
@@ -41,6 +48,23 @@ The API to the example app is described below.
     Content-Length: 2
 
     []
+    
+ ##Download image
+ 
+  ### Request
+
+`GET /images/{id}`
+
+    curl -v -F  download=@localfilename http://8000/images/download/{id}
 
 
-For start db use docker-compose -> image-softcery.db1
+### Response
+
+    HTTP/1.1 200 OK
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: multipart/form-data
+    Content-Length: 2
+
+    {"imageFile": *multipart.FileHeader}
