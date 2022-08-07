@@ -68,3 +68,9 @@ The API to the example app is described below.
     Content-Length: 2
 
     {"imageFile": *multipart.FileHeader}
+
+
+## P.S:
+![image](https://user-images.githubusercontent.com/40574816/183312542-aded2b91-0ace-49f1-8a3d-4512ef8d3155.png)
+
+At first, I thought of leaving business-entity at the root of the application so that we can use it at any level of the application without any problems. But for the sake of the beauty of the code, I decided to throw them into pkg
