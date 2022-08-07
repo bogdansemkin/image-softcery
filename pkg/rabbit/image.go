@@ -19,7 +19,7 @@ func imageResize(path string) string {
 	}
 	file.Close()
 
-	m := resize.Resize(1500, 0, img, resize.Lanczos3)
+	m := resize.Resize(1280, 768, img, resize.Lanczos3)
 
 	out, err := ioutil.TempFile("D:\\image-softcery\\templates\\img", "resize75-*.png")
 	if err != nil {
@@ -43,7 +43,7 @@ func imageHalfResize(path string) string {
 	}
 	file.Close()
 
-	m := resize.Resize(1000, 0, img, resize.Lanczos3)
+	m := resize.Resize(1024, 768, img, resize.Lanczos3)
 
 	out, err := ioutil.TempFile("D:\\image-softcery\\templates\\img", "resize50-*.png")
 	if err != nil {
@@ -67,7 +67,7 @@ func imageFullResize(path string) string {
 	}
 	file.Close()
 
-	m := resize.Resize(500, 0, img, resize.Lanczos3)
+	m := resize.Resize(800, 600, img, resize.Lanczos3)
 
 	out, err := ioutil.TempFile("D:\\image-softcery\\templates\\img", "resize25-*.png")
 	if err != nil {
