@@ -49,7 +49,7 @@ The API to the example app is described below.
 
     []
     
- ##Download image
+ ## Download image
  
   ### Request
 
