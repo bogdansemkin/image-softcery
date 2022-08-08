@@ -49,7 +49,6 @@ func (rabbit *MQ) Consumer() (string, string, string, string) {
 	go func() {
 		for d := range msgs {
 
-			// create a random name for the new image
 			s1 := rand.NewSource(time.Now().Unix())
 			r1 := rand.New(s1)
 			name := strconv.Itoa(r1.Intn(100000))
@@ -65,23 +64,19 @@ func (rabbit *MQ) Consumer() (string, string, string, string) {
 				log.Fatal(err)
 			}
 
-			// Deserialize file
 			img, err := jpeg.Decode(file)
 			if err != nil {
 				log.Fatal(err)
 			}
 			file.Close()
 
-			// resizing
 			m := resize.Resize(1280, 960, img, resize.Lanczos3)
 
-			// create the file
 			out, err := os.Create(path)
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			// write new image to file
 			err = jpeg.Encode(out, m, nil)
 			if err != nil {
 				log.Fatal(err)
