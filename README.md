@@ -78,3 +78,15 @@ The API to the example app is described below.
 ![image](https://user-images.githubusercontent.com/40574816/183312542-aded2b91-0ace-49f1-8a3d-4512ef8d3155.png)
 
 At first, I thought of leaving business-entity at the root of the application so that we can use it at any level of the application without any problems. But for the sake of the beauty of the code, I decided to throw them into pkg
+
+### For reviewer
+
+Задача состояла в том, что нужно оптимизировать фотографии и делать ресайз под входящий аргумент на эндпоинте /download/:id. 
+Да, изначально в голове была конструкция сделать динамический ресайз, который будет отталкиваться от входящего размера, в дальнейшем оптимизироваться(если image > 1920x1080, оно оптимизируется в full-hd, если же ниже, то нет).
+
+Но, при написании кода я решил уйти немного в сторону.
+
+![image](https://user-images.githubusercontent.com/40574816/183419718-da226b46-8f0d-4bc5-9856-fa913734090b.png)
+
+Яркий пример: Для тех или иных обстоятельств будет подтягиваться в дальнейшем с сервиса то разрешение, которое нужно. Да, это в идейном плане отличается от ТЗ, но сам функционал(оптимизация и ресайз) реализован, а я просто попытался объяснить почему и зачем статик, кхэ.
+
