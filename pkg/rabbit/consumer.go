@@ -92,9 +92,9 @@ func (rabbit *MQ) Consumer() (string, string, string, string) {
 		}
 	}()
 	image := <-c
-	seventy_five_image := <-c
-	half_image := <-c
-	twenty_five_image := <-c
+	seventyFiveImage := <-c
+	halfImage := <-c
+	twentyFiveImage := <-c
 
-	return image, seventy_five_image, half_image, twenty_five_image
+	return image, seventyFiveImage, halfImage, twentyFiveImage
 }
